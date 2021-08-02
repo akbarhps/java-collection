@@ -30,6 +30,8 @@ Sumber Tutorial:
 
 ## Java Collection Interface
 
+### Java Collection Interface UML
+
 ![Java Collection Interface UML](https://user-images.githubusercontent.com/69947442/127863095-d904bc42-e779-46ff-ba25-1fa2252e9866.png)
 
 ## Iterable Interface
@@ -110,6 +112,8 @@ Documentation:
   collection
 - Tidak ada direct implementation untuk Collection, karena collection dibagi lagi menjadi `List, Set dan Queue`
 
+### Method-method di Collection
+
 ![Method-method di Collection](https://user-images.githubusercontent.com/69947442/127863092-ac8bc94d-f03d-4136-abe4-3750754c6037.png)
 
 Contoh:
@@ -155,12 +159,44 @@ public class Main {
     - Data list berurut sesuai dengan posisi input (kita juga bisa mengatur urutan posisi ketika menginput data)
     - List memiliki `index`, untuk mengakses `element` pada list kita menggunakan `index`
 
+### Method-method di List
+
 ![Method-method di List](https://user-images.githubusercontent.com/69947442/127863087-f6f272fc-713c-4e70-adc8-fe045332d87d.png)
+
+### Implementasi List
 
 ![Implementasi List](https://user-images.githubusercontent.com/69947442/127863083-2667d142-d54d-4eee-9446-f174f2aded9f.png)
 
-## Array List Class
+## ArrayList Class
 
 - `ArrayList` adalah implementasi dari List menggunakan Array
 - Default kapasitas array di ArrayList adalah 10
-- Ketika kita memasukkan data dan array sudah penuh, maka secara otomatis ArrayList akan membuat array baru dengan kapasitas baru (setahu saye 2 kali lipat kapasitas lama), kemudian meng-copy isi dari array sebelumnya ke array baru
+- Ketika kita memasukkan data dan array sudah penuh, maka secara otomatis ArrayList akan membuat array baru dengan
+  kapasitas baru (setahu saye 2 kali lipat kapasitas lama), kemudian meng-copy isi dari array sebelumnya ke array baru
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // inisialisasi dan menbambah data
+        List<String> names = new ArrayList<>(
+                List.of("Akbar", "Hasadi", "Putra", "Siregar")
+        );
+
+        // mengakses data pada index 0
+        System.out.println(names.get(0));
+        // output: Akbar
+
+        // mengedit data pada index 1
+        names.set(1, "Ganteng");
+        System.out.println(names);
+        // output: [Akbar, Ganteng, Putra, Siregar]
+
+        // menghapus data
+        names.removeAll(List.of("Putra", "Siregar"));
+        System.out.println(names);
+        // output: [Akbar, Ganteng]
+    }
+}
+```
