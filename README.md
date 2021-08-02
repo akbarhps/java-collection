@@ -10,6 +10,7 @@ Sumber Tutorial:
 [Youtube](https://www.youtube.com/watch?v=_JEMfq4k2O4) |
 [Slide](https://docs.google.com/presentation/d/1IybRjjqE2hIrrq2aLbZ1qw_7o6vhgg27dVZVc4gQF9g/edit#slide=id.p)
 
+
 ## Pengenalan Collection
 
 - Collection adalah hal umum yang biasa dimiliki di bahasa pemrograman, seperti PHP, Python, Ruby, dan lain-lain
@@ -17,3 +18,10 @@ Sumber Tutorial:
   seperti `Array`
 - Java telah menyediakan class-class collection yang sudah bisa langsung kita gunakan, tanpa tambahan library
 - Semua class collection di Java adalah `Generic Class`, sehingga kita bisa menggunakan Java Collection dengan tipe data apapun
+
+
+## Java Collection
+
+- `Interfaces`, ini adalah kontrak representasi dari collection. Semua collection di Java memiliki kontrak interface, sehingga jika kita mau, kita juga bisa membuat implementasinya sendiri
+- `Implementation`, tidak perlu khawatir, kita juga bisa menggunakan implementasi yang sudah dibuat oleh Java, semua interface collection sudah ada implementasi class nya di Java.
+- `Algorithms`, Java juga sudah menyediakan algoritma-algoritma yang umum digunakan di collection, seperti pencarian dan pengurutan data
