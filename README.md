@@ -218,6 +218,7 @@ Contoh:
 ```java
 public class Main {
     public static void main(String[] args) {
+        // inisialisasi dan menbambah data
         List<String> names = new LinkedList<>(
                 List.of("Akbar", "Hasadi", "Putra", "Siregar")
         );
