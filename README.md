@@ -79,24 +79,71 @@ public class Main {
 
 Documentation:
 
-- method `hasNext()`
+- `hasNext()`
 
 ```java
- /*
-  Returns {@code true} if the iteration has more elements.
-  (In other words, returns {@code true} if {@link #next} would
-  return an element rather than throwing an exception.)
- 
-  @return {@code true} if the iteration has more elements
+ /**
+ * Returns {@code true} if the iteration has more elements.
+ * (In other words, returns {@code true} if {@link #next} would
+ * return an element rather than throwing an exception.)
+ *
+ * @return {@code true} if the iteration has more elements
  */
 ```
 
-- method `next()`;
+- `next()`;
 
 ```java
- /* 
+ /**
  * Returns the next element in the iteration.
+ *
  * @return the next element in the iteration
  * @throws NoSuchElementException if the iteration has no more elements
  */
+```
+
+## Collection Interface
+
+- Selain `Iterable Interface`, parent class semua collection di Java adalah `Collection`
+- `Iterable Interface` digunakan sebagai kontrak untuk melakukan iterasi data secara `sequential`
+- `Collection` merupakan kontrak untuk memanipulasi data collection, seperti menambah, menghapus dan mengecek isi data
+  collection
+- Tidak ada direct implementation untuk Collection, karena collection dibagi lagi menjadi `List, Set dan Queue`
+
+![Method-method di Collection](https://user-images.githubusercontent.com/69947442/127854781-0bfa0654-b770-4de1-87b6-de1cd5deeff9.png)
+
+Contoh:
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    Collection<String> names = new ArrayList<>();
+
+    // Menambah data
+    names.add("Akbar");
+    names.addAll(List.of("Hasadi", "Putra", "Siregar", "Ganteng", "Banget"));
+
+    System.out.println(names);
+    // Output: [Akbar, Hasadi, Putra, Siregar, Ganteng, Banget]
+
+    // Menghapus data
+    names.remove("Hasadi");
+    names.removeAll(List.of("Putra", "Siregar"));
+
+    System.out.println(names);
+    // Output: [Akbar, Ganteng, Banget]
+
+    // Mengecek data
+    System.out.println(names.contains("Kejelekan"));
+    // Output: false
+
+    System.out.println(
+            names.containsAll(List.of("Akbar", "Ganteng", "Banget"))
+    );
+    // Output: true
+
+    // Ukuran data
+    System.out.println(names.size());
+  }
+}
 ```
