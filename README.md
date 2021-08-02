@@ -205,10 +205,6 @@ public class Main {
 
 - `LinkedList` adalah implementasi List dengan struktur data `Double LinkedList`
 
-Note:
-
-- `Double LinkedList` adalah `LinkedList` yang memiliki 2 arah (mirip seperti `Node`)
-
 ### Double LinkedList
 
 ![Double LinkedList](https://user-images.githubusercontent.com/69947442/127863079-98ff3ab3-9956-4ae4-9217-6f188b402d1f.png)
@@ -238,4 +234,13 @@ public class Main {
         // output: [Akbar, Ganteng]
     }
 }
-```
+``` 
+
+### ArrayList vs LinkedList
+
+|Operasi|ArrayList|LinkedList|
+|-------|---------|----------|
+|`add`|Cepat jika kapasitas Array masih cukup, lambat jika sudah penuh|Cepat karena hanya menambah node di akhir|
+|`get`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu indexnya|
+|`set`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu nodenya|
+|`remove`|Lambat karena harus menggeser data di belakang yang di hapus|Lambat karena ada kemungkinan node yang dihapus di akhir array, jadi harus mengakses seluruh node|
