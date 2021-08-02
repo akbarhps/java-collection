@@ -25,3 +25,8 @@ Sumber Tutorial:
 - `Interfaces`, ini adalah kontrak representasi dari collection. Semua collection di Java memiliki kontrak interface, sehingga jika kita mau, kita juga bisa membuat implementasinya sendiri
 - `Implementation`, tidak perlu khawatir, kita juga bisa menggunakan implementasi yang sudah dibuat oleh Java, semua interface collection sudah ada implementasi class nya di Java.
 - `Algorithms`, Java juga sudah menyediakan algoritma-algoritma yang umum digunakan di collection, seperti pencarian dan pengurutan data
+
+
+## Java Collection Interface
+
+![Java Collection Interface UML](https://user-images.githubusercontent.com/69947442/127849630-3ef8e9a7-52b0-470a-a1f0-1292fbd2a414.png)
