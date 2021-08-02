@@ -116,34 +116,45 @@ Contoh:
 
 ```java
 public class Main {
-  public static void main(String[] args) {
-    Collection<String> names = new ArrayList<>();
+    public static void main(String[] args) {
+        Collection<String> names = new ArrayList<>();
 
-    // Menambah data
-    names.add("Akbar");
-    names.addAll(List.of("Hasadi", "Putra", "Siregar", "Ganteng", "Banget"));
+        // Menambah data
+        names.add("Akbar");
+        names.addAll(List.of("Hasadi", "Putra", "Siregar", "Ganteng", "Banget"));
 
-    System.out.println(names);
-    // Output: [Akbar, Hasadi, Putra, Siregar, Ganteng, Banget]
+        System.out.println(names);
+        // Output: [Akbar, Hasadi, Putra, Siregar, Ganteng, Banget]
 
-    // Menghapus data
-    names.remove("Hasadi");
-    names.removeAll(List.of("Putra", "Siregar"));
+        // Menghapus data
+        names.remove("Hasadi");
+        names.removeAll(List.of("Putra", "Siregar"));
 
-    System.out.println(names);
-    // Output: [Akbar, Ganteng, Banget]
+        System.out.println(names);
+        // Output: [Akbar, Ganteng, Banget]
 
-    // Mengecek data
-    System.out.println(names.contains("Kejelekan"));
-    // Output: false
+        // Mengecek data
+        System.out.println(names.contains("Kejelekan"));
+        // Output: false
 
-    System.out.println(
-            names.containsAll(List.of("Akbar", "Ganteng", "Banget"))
-    );
-    // Output: true
+        System.out.println(
+                names.containsAll(List.of("Akbar", "Ganteng", "Banget"))
+        );
+        // Output: true
 
-    // Ukuran data
-    System.out.println(names.size());
-  }
+        // Ukuran data
+        System.out.println(names.size());
+    }
 }
 ```
+
+## List Interface
+
+- List adalah struktur data collection yang memiliki sifat sebagai berikut:
+    - `Element` di list bisa duplikat
+    - Data list berurut sesuai dengan posisi input (kita juga bisa mengatur urutan posisi ketika menginput data)
+    - List memiliki `index`, untuk mengakses `element` pada list kita menggunakan `index`
+
+![Method-method di List](https://user-images.githubusercontent.com/69947442/127861494-5cff7159-6573-469d-81e3-5a3e7fe5604d.png)
+
+![Implementasi List](https://user-images.githubusercontent.com/69947442/127861889-abf4e6ec-8dee-4dd4-b792-3c77649c4a17.png)
