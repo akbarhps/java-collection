@@ -1,4 +1,4 @@
-# Java Collection
+# [Java Collection](https://akbarhps.github.io/java-collection/)
 
 A collection represents a group of objects, known as its elements. Some collections allow duplicate elements and others
 do not. Some are ordered and others unordered. The JDK does not provide any direct implementations of this interface: it
