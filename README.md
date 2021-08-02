@@ -54,6 +54,8 @@ public class Main {
 // Output: Akbar Hasadi Putra Siregar
 ```
 
+## Iterator Interface
+
 - Sebenarnya `for-each` di Iterable bisa terjadi karena ada method `iterator()` yang mengembalikan object `Iterator`
 - `Iterator` adalah interface yang mendefinisikan cara kita mengakses element di collection secara `sequential`
 - `For-each` sendiri muncul sejak `Java 5`, sebelum `Java 5` untuk melakukan iterasi pada collection biasanya dilakukan
