@@ -244,3 +244,86 @@ public class Main {
 |`get`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu indexnya|
 |`set`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu nodenya|
 |`remove`|Lambat karena harus menggeser data di belakang yang di hapus|Lambat karena ada kemungkinan node yang dihapus di akhir array, jadi harus mengakses seluruh node|
+
+## Immutable List
+
+- Secara default, List di java bersifat `Mutable` (dapat di re-initialize)
+- Di Java mendukung pembuatan `Immutable List` (sama seperti variable final)
+- Element `Immutable List` tetap dapat diubah
+
+Contoh:
+
+```java
+public class Main {
+    // Person.getHobbies()
+    public List<String> getHobbies() {
+        return Collections.unmodifiableList(hobbies);
+    }
+
+    public static void main(String[] args) {
+        Person akbar = new Person("Akbar");
+        akbar.addHobby("Menggarai Orang");
+        akbar.addHobby("Gabut");
+
+        doSomethingWithHobbies(akbar.getHobbies());
+        System.out.println(akbar);
+    }
+
+    public static void doSomethingWithHobbies(List<String> hobbies) {
+        // hobbies.add("Mantul");
+        // Error Exception: Exception in thread "main" java.lang.UnsupportedOperationException
+    }
+}
+```
+
+Documentation:
+
+- `add(e)`
+
+```java
+/**
+ * Appends the specified element to the end of this list (optional
+ * operation).
+ *
+ * <p>Lists that support this operation may place limitations on what
+ * elements may be added to this list.  In particular, some
+ * lists will refuse to add null elements, and others will impose
+ * restrictions on the type of elements that may be added.  List
+ * classes should clearly specify in their documentation any restrictions
+ * on what elements may be added.
+ *
+ * @param e element to be appended to this list
+ * @return {@code true} (as specified by {@link Collection#add})
+ * @throws UnsupportedOperationException if the {@code add} operation
+ *         is not supported by this list
+ * @throws ClassCastException if the class of the specified element
+ *         prevents it from being added to this list
+ * @throws NullPointerException if the specified element is null and this
+ *         list does not permit null elements
+ * @throws IllegalArgumentException if some property of this element
+ *         prevents it from being added to this list
+ */
+```
+
+### Membuat Immutable List
+
+|Method|Keterangan|
+|------|----------|
+|`Collections.emptyList()`|Membuat immutable list kosong|
+|`Collections.singletonList(e)`|Membuat immutable list berisi 1 element|
+|`Collections.unmodifiableList(list)`|Mengubah mutable list menjadi immutable list|
+|`List.of(e..)`|Membuat immutable list dari beberapa element|
+
+Contoh:
+
+```java
+public class ImmutableList {
+    public static void main(String[] args) {
+        List<Integer> empty = Collections.emptyList();
+        List<Integer> single = Collections.singletonList(1);
+        List<Integer> list = List.of(1, 2, 3);
+        List<Integer> modifiableList = new ArrayList<>(list);
+        List<Integer> unmodifiableList = Collections.unmodifiableList(modifiableList);
+    }
+}
+```
