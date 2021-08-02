@@ -200,3 +200,41 @@ public class Main {
     }
 }
 ```
+
+## LinkedList Class
+
+- `LinkedList` adalah implementasi List dengan struktur data `Double LinkedList`
+
+Note:
+
+- `Double LinkedList` adalah `LinkedList` yang memiliki 2 arah (mirip seperti `Node`)
+
+### Double LinkedList
+
+![Double LinkedList](https://user-images.githubusercontent.com/69947442/127863079-98ff3ab3-9956-4ae4-9217-6f188b402d1f.png)
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        List<String> names = new LinkedList<>(
+                List.of("Akbar", "Hasadi", "Putra", "Siregar")
+        );
+
+        // mengakses data pada index 0
+        System.out.println(names.get(0));
+        // output: Akbar
+
+        // mengedit data pada index 1
+        names.set(1, "Ganteng");
+        System.out.println(names);
+        // output: [Akbar, Ganteng, Putra, Siregar]
+
+        // menghapus data
+        names.removeAll(List.of("Putra", "Siregar"));
+        System.out.println(names);
+        // output: [Akbar, Ganteng]
+    }
+}
+```
