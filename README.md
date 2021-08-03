@@ -495,3 +495,10 @@ Documentation:
  * @see #add(Object)
  */
 ```
+
+### Membuat Immutable Sorted Set
+
+|Method|Keterangan|
+|---|---|
+|`Collections.emptySortedSet()`|Membuat immutable sorted set kosong|
+|`Collections.unmodifiableSortedSet()`|Mengubah mutable sorted set menjadi immutable|
