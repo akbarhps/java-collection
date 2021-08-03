@@ -415,7 +415,7 @@ public class MyEnumSet {
     public enum Gender {
         MALE, FEMALE, NOT_MENTIONED
     }
-    
+
     public static void main(String[] args) {
         Set<Gender> genders = EnumSet.allOf(Gender.class);
         System.out.println(genders);
@@ -440,4 +440,58 @@ public class MyEnumSet {
 
 ## SortedSet Interface
 
-- S
+- SortedSet adalah turunan dari Set, namun di SortedSet elemen-elemen yang dimasukkan akan diurutkan secara `natural`
+- Jika elemen yang dimasukkan merupakan turunan dari `Comparable`, maka secara otomatis akan diurutkan berdasarkan
+  method `Comparable`
+- Kita juga bisa menggunakan `Comparator` pada SortedSet
+
+Contoh:
+
+```java
+public class MySortedSet {
+    public static void main(String[] args) {
+        SortedSet<Person> people = new TreeSet<>(
+//                Comparator.comparing(Person::getName)
+                new PersonComparator()
+        );
+        people.addAll(
+                Set.of(
+                        new Person("Akbar"),
+                        new Person("Hasadi"),
+                        new Person("Putra"),
+                        new Person("Siregar")
+                )
+        );
+        System.out.println(people);
+    }
+}
+```
+
+Documentation:
+
+- `addAll`
+
+```java
+/**
+ * Adds all of the elements in the specified collection to this set if
+ * they're not already present (optional operation).  If the specified
+ * collection is also a set, the {@code addAll} operation effectively
+ * modifies this set so that its value is the <i>union</i> of the two
+ * sets.  The behavior of this operation is undefined if the specified
+ * collection is modified while the operation is in progress.
+ *
+ * @param  c collection containing elements to be added to this set
+ * @return {@code true} if this set changed as a result of the call
+ *
+ * @throws UnsupportedOperationException if the {@code addAll} operation
+ *         is not supported by this set
+ * @throws ClassCastException if the class of an element of the
+ *         specified collection prevents it from being added to this set
+ * @throws NullPointerException if the specified collection contains one
+ *         or more null elements and this set does not permit null
+ *         elements, or if the specified collection is null
+ * @throws IllegalArgumentException if some property of an element of the
+ *         specified collection prevents it from being added to this set
+ * @see #add(Object)
+ */
+```
