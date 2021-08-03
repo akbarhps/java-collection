@@ -437,3 +437,7 @@ public class MyEnumSet {
 |`Collections.singleton(e)`|Membuat immutable set berisi 1 element|
 |`Collections.unmodifiableSet(list)`|Mengubah mutable set menjadi immutable list|
 |`Set.of(e..)`|Membuat immutable set dari beberapa element|
+
+## SortedSet Interface
+
+- S
