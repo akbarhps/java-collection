@@ -496,9 +496,53 @@ Documentation:
  */
 ```
 
-### Membuat Immutable Sorted Set
+### Membuat Immutable SortedSet
 
 |Method|Keterangan|
 |---|---|
 |`Collections.emptySortedSet()`|Membuat immutable sorted set kosong|
 |`Collections.unmodifiableSortedSet()`|Mengubah mutable sorted set menjadi immutable|
+
+## NavigableSet Interface
+
+- NavigableSet adalah `turunan` dari SortedSet
+- NavigableSet `menambah method-method untuk melakukan navigasi pencarian elemen`, seperti mencari elemen yang lebih besar
+  dari, kurang dari, membalikkan urutan set, dan lainnya
+  
+### Method-method di Navigableset
+
+![Method-method di Navigableset](https://user-images.githubusercontent.com/69947442/127952283-49bd1bc5-8921-4d0f-9319-537db6920744.png)
+
+### Implementasi NavigableSet
+
+![Implementasi NavigableSet](https://user-images.githubusercontent.com/69947442/127952276-76cc68ee-18d4-41eb-864d-e6f4747fe14c.png)
+
+Contoh:
+
+```java
+public class MyNavigableSet {
+    public static void main(String[] args) {
+        NavigableSet<String> names = new TreeSet<>(
+                Set.of("Akbar", "Hasadi", "Putra", "Siregar")
+        );
+        System.out.println(names);
+        // output: [Akbar, Hasadi, Putra, Siregar]
+
+        System.out.println(names.descendingSet());
+        // output: [Siregar, Putra, Hasadi, Akbar]
+
+        System.out.println(names.higher("Akbar"));
+        // output: Hasadi
+
+        names.pollFirst();
+        System.out.println(names);
+        // output: [Hasadi, Putra, Siregar]
+
+        System.out.println(names.headSet("Putra", true));
+        // output: [Hasadi, Putra]
+
+        System.out.println(names.tailSet("Putra", false));
+        // output: [Siregar]
+    }
+}
+```
