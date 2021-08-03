@@ -872,3 +872,32 @@ public class MyNavigableMap {
 |------|----------|
 |`Collections.emptyNavigableMap()`|Membuat immutable navigable map kosong|
 |`Collections.unmodifiableNavigableMap(map)`|Mengubah mutable navigable map menjadi immutable|
+
+## Entry Interface
+
+- Saat kita menyimpan data di Map, data disimpan dalam pair (key, value)
+- Di Java Collection, implementasi Pair di Map bernama Entry
+- Entry adalah Interface sederhana yang berisikan method untuk mengambil key dan value
+
+![Method-method di Entry Interface](https://user-images.githubusercontent.com/69947442/128019426-a0dc3fa2-f813-4990-8109-432656ff4ad5.png)
+
+Contoh:
+
+```java
+public class MyEntryInterface {
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>(
+                Map.of(
+                        "1", "Akbar",
+                        "3", "Putra",
+                        "2", "Hasadi",
+                        "4", "Siregar"
+                )
+        );
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        for (var entry : entries) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+}
+```
