@@ -805,3 +805,17 @@ public class MyEnumMap {
 |`Collections.singletonMap(key, value)`|Membuat immutable map berisi 1 elemen|
 |`Collections.unmodifiableMap(map)`|Mengubah mutable map menjadi immutable|
 |`Map.of(key, value)`|Membuat immutable map dari key-value|
+
+## SortedMap Interface
+
+- SortedMap adalah implementasi Map dengan data key diurutkan sesuai dengan Comparable key atau bisa menggunakan
+  Comparator
+- SortedMap cocok untuk kasus yang posisi key pada Map harus berurut
+
+### Method-method di SortedMap
+
+![Method-method di SortedMap](https://user-images.githubusercontent.com/69947442/128015014-3d85ba63-07ac-4613-9c4b-89603344d1ec.png)
+
+### Implementasi SortedMap
+
+![Implementasi SortedMap](https://user-images.githubusercontent.com/69947442/128015006-47257c1d-33f8-4639-a5f7-a4b6e65095f8.png)
