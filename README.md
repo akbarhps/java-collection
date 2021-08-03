@@ -796,3 +796,12 @@ public class MyEnumMap {
     }
 }
 ```
+
+### Membuat Immutable Map
+
+|Method|Keterangan|
+|------|----------|
+|`Collections.emptyMap()`|Membuat immutable map kosong|
+|`Collections.singletonMap(key, value)`|Membuat immutable map berisi 1 elemen|
+|`Collections.unmodifiableMap(map)`|Mengubah mutable map menjadi immutable|
+|`Map.of(key, value)`|Membuat immutable map dari key-value|
