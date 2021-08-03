@@ -21,6 +21,7 @@ Sumber Tutorial:
 - [LinkedList Class](#linkedlist-class)
 - [Immutable List](#immutable-list)
 - [Set Interface](#set-interface)
+- [Immutable Set](#immutable-set)
 
 ## <a name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</a>
 
@@ -283,7 +284,7 @@ public class Main {
 
 - Secara default, List di java bersifat `Mutable`
 - Di Java mendukung pembuatan `Immutable List`
-- Element pada ` ` tidak dapat ditambah atau dihapus
+- Element pada `Immutable` tidak dapat ditambah atau dihapus
 
 Contoh:
 
@@ -422,3 +423,17 @@ public class MyEnumSet {
     }
 }
 ```
+
+## Immutable Set
+
+- Sama seperti list, Java juga mendukung pembuatan `Immutable Set`
+- Cara pembuatan `Immutable Set` mirip dengan pembuatan `Immutable List`
+
+### Membuat Immutable List
+
+|Method|Keterangan|
+|------|----------|
+|`Collections.emptySet()`|Membuat immutable set kosong|
+|`Collections.singleton(e)`|Membuat immutable set berisi 1 element|
+|`Collections.unmodifiableSet(list)`|Mengubah mutable set menjadi immutable list|
+|`Set.of(e..)`|Membuat immutable set dari beberapa element|
