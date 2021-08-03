@@ -819,3 +819,10 @@ public class MyEnumMap {
 ### Implementasi SortedMap
 
 ![Implementasi SortedMap](https://user-images.githubusercontent.com/69947442/128015006-47257c1d-33f8-4639-a5f7-a4b6e65095f8.png)
+
+### Membuat Immutable SortMap
+
+|Method|Keterangan|
+|------|----------|
+|`Collections.emptySortedMap()`|Membuat immutable sorted map kosong|
+|`Collections.unmodifiableSortedMap(map)`|Mengubah mutable sorted map menjadi immutable|
