@@ -918,6 +918,20 @@ public class MyEntryInterface {
 - Lantas bagaimana jika kita ingin membuat List yang bisa digunakan di proses paralel? di Java versi baru sudah
   disediakan yang lebih canggih untuk itu, oleh karena itu penggunaan Vector sudah jarang sekali ditemui sekarang
 
+Contoh:
+
+```java
+public class MyVector {
+    public static void main(String[] args) {
+        List<String> list = new Vector<>(
+                List.of("Akbar", "Hasadi", "Putra", "Siregar")
+        );
+        System.out.println(list);
+        // output: [Akbar, Hasadi, Putra, Siregar]
+    }
+}
+```
+
 ## Hashtable Class
 
 - Hashtable adalah implementasi dari Map yang mirip dengan HashMap
