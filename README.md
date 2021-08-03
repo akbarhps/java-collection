@@ -662,7 +662,7 @@ public class MyDeque {
 - Dimana key di map itu harus `unik`, tidak boleh duplikat, dan satu key cuma boleh mapping ke satu value
 - Map sebenarnya mirip dengan Array, cuma bedanya kita bisa merubah indexing dengan tipe data sesuai dengan keinginan
   kita
-  
+
 ### Method-method di Map
 
 ![Method-method di Map](https://user-images.githubusercontent.com/69947442/128002023-23a15623-bc8f-45f7-8690-ce4926a3df12.png)
@@ -670,3 +670,129 @@ public class MyDeque {
 ### Implementasi Map
 
 ![Implementasi Map](https://user-images.githubusercontent.com/69947442/128002017-5571f353-8e9c-47fa-8987-1f7bbd2a2a1d.png)
+
+## HashMap
+
+- HashMap adalah implementasi Map yang melakukan distribusi key menggunakan method `hashCode()`
+- Karena HashMap sangat bergantung dengan method `hashCode()`, jadi pastikan kita harus membuat method `hashCode()`
+  seunik mungkin, karena jika tidak, maka pendistribusian key nya tidak optimal sehingga proses get data di Map akan
+  semakin lambat
+- Di HashMap pengecekan data duplikat dilakukan dengan menggunakan method `equals()`
+
+Contoh:
+
+```java
+public class MyHashMap {
+    public static void main(String[] args) {
+        Map<String, String> map = new HashMap<>();
+        map.put("firstName", "Akbar");
+        map.put("lastName", "Putra");
+        System.out.println(map);
+        // output: {firstName=Akbar, lastName=Putra}
+    }
+}
+```
+
+## WeakHashMap
+
+- WeakHashMap sama seperti HashMap
+- Bedanya WeakHashMap menggunakan weak key, dimana jika key tidak lagi digunakan, maka secara otomatis akan dihapus
+  oleh `Garbage Collector`
+
+Contoh:
+
+```java
+public class MyWeakHashMap {
+    public static void main(String[] args) {
+        Map<Integer, Integer> weakHashmap = new WeakHashMap<>();
+        for (int i = 1; i <= 1_000_000; i++) {
+            weakHashmap.put(i, i);
+        }
+        System.out.println(weakHashmap.size());
+        // output:790440
+        System.gc(); // run garbage collector
+        System.out.println(weakHashmap.size());
+        // output: 127
+    }
+}
+```
+
+## IndentityHashMap
+
+- IdentityHashMap sama seperti HashMap
+- Bedanya adalah IdentityHashMap menggunakan `Reference Equality (Operator ==)` untuk mengecek kesamaan datanya
+- `Reference Equality (Operator ==)` mengecek lokasi memory dari variable
+
+Contoh:
+
+```java
+public class MyIdentityHashMap {
+    public static void main(String[] args) {
+        Map<String, String> map = new IdentityHashMap<>();
+        String value = "Akbar";
+        String key = "firstName";
+
+        String first = "first";
+        String name = "Name";
+        String key2 = first + name;
+
+        map.put(key, value);
+        map.put(key, value);
+        map.put(key2, value);
+        System.out.println(map);
+        // output: {firstName=Akbar, firstName=Akbar}
+
+        System.out.println(key.equals(key2));
+        // output: true -> isi kedua String sama
+        System.out.println(key == key2);
+        // output: false -> lokasi memory kedua String berbeda
+    }
+}
+```
+
+## LinkedHashMap
+
+- LinkedHashMap adalah implementasi Map dengan menggunakan `Double LinkedList`
+- Data di LinkedHashMap akan lebih terprediksi karena datanya akan disimpan berurutan dalam `LinkedList` sesuai urutan
+  kita menyimpan data
+- Proses get data di LinkedHashMap lebih lambat karena harus melakukan `iterasi` 1 per 1
+
+Contoh:
+
+```java
+public class MyLinkedHashMap {
+    public static void main(String[] args) {
+        Map<String, String> map = new LinkedHashMap<>();
+        map.put("firstName", "Akbar");
+        map.put("lastName", "Putra");
+        System.out.println(map);
+        // output: {firstName=Akbar, lastName=Putra}
+    }
+}
+```
+
+## EnumMap
+
+- EnumMap adalah implementasi Map dimana key nya adalah enum
+- Algoritma pendistribusian key dioptimalkan untuk enum, sehingga lebih optimal dibandingkan menggunakan
+  method `hashCode()`
+
+Contoh:
+
+```java
+public class MyEnumMap {
+    public enum Membership {
+        FREE, FREEMIUM, PREMIUM, VIP
+    }
+
+    public static void main(String[] args) {
+        EnumMap<Membership, String> membershipType = new EnumMap<>(Membership.class);
+        membershipType.put(Membership.FREE, "Gratis");
+        membershipType.put(Membership.FREEMIUM, "Gratis + Donasi Saweria");
+        membershipType.put(Membership.PREMIUM, "Berbayar");
+        membershipType.put(Membership.VIP, "Berbayar + Donasi Saweria");
+        System.out.println(membershipType);
+        // output: {FREE=Gratis, FREEMIUM=Gratis + Donasi Saweria, PREMIUM=Berbayar, VIP=Berbayar + Donasi Saweria}
+    }
+}
+```
