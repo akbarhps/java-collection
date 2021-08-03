@@ -108,10 +108,10 @@ public class Main {
 
 Documentation:
 
-- `hasNext()`
+- `boolean hasNext();`
 
 ```java
- /**
+/**
  * Returns {@code true} if the iteration has more elements.
  * (In other words, returns {@code true} if {@link #next} would
  * return an element rather than throwing an exception.)
@@ -120,10 +120,10 @@ Documentation:
  */
 ```
 
-- `next()`;
+- `E next();`
 
 ```java
- /**
+/**
  * Returns the next element in the iteration.
  *
  * @return the next element in the iteration
@@ -317,7 +317,7 @@ public class Main {
 
 Documentation:
 
-- `add(e)`
+- `boolean add(E e);`
 
 ```java
 /**
@@ -473,7 +473,7 @@ public class MySortedSet {
 
 Documentation:
 
-- `addAll`
+- `boolean addAll(Collection<? extends E> c);`
 
 ```java
 /**
