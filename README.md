@@ -22,8 +22,12 @@ Sumber Tutorial:
 - [Immutable List](#immutable-list)
 - [Set Interface](#set-interface)
 - [Immutable Set](#immutable-set)
+- [SortedSet Interface](#sortedset-interface)
+- [Navigable Set](#navigable-set)
+- [Queue Interface](#queue-interface)
+- [Deque Interface](#deque-interface)
 
-## <a name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</a>
+## <span name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</span>
 
 ---
 
@@ -34,7 +38,7 @@ Sumber Tutorial:
 - Semua class collection di Java adalah `Generic Class`, sehingga kita bisa menggunakan Java Collection dengan tipe data
   apapun
 
-## <a name="java-collection" href="#daftar-isi">Java Collection</a>
+## <span name="java-collection" href="#daftar-isi">Java Collection</span>
 
 ---
 
@@ -45,7 +49,7 @@ Sumber Tutorial:
 - `Algorithms`, Java juga sudah menyediakan algoritma-algoritma yang umum digunakan di collection, seperti pencarian dan
   pengurutan data
 
-## <a name="java-collection-interface" href="#daftar-isi">Java Collection Interface</a>
+## <span name="java-collection-interface" href="#daftar-isi">Java Collection Interface</span>
 
 ---
 
@@ -53,7 +57,7 @@ Sumber Tutorial:
 
 ![Java Collection Interface UML](https://user-images.githubusercontent.com/69947442/127863095-d904bc42-e779-46ff-ba25-1fa2252e9866.png)
 
-## <a name="iterable-interface" href="#daftar-isi">Iterable Interface</a>
+## <span name="iterable-interface" href="#daftar-isi">Iterable Interface</span>
 
 ---
 
@@ -77,7 +81,7 @@ public class Main {
 // Output: Akbar Hasadi Putra Siregar
 ```
 
-## <a name="iterator-interface" href="#daftar-isi">Iterator Interface</a>
+## <span name="iterator-interface" href="#daftar-isi">Iterator Interface</span>
 
 ---
 
@@ -127,7 +131,7 @@ Documentation:
  */
 ```
 
-## <a name="collection-interface" href="#daftar-isi">Collection Interface</a>
+## <span name="collection-interface" href="#daftar-isi">Collection Interface</span>
 
 ---
 
@@ -177,7 +181,7 @@ public class Main {
 }
 ```
 
-## <a name="list-interface" href="#daftar-isi">List Interface</a>
+## <span name="list-interface" href="#daftar-isi">List Interface</span>
 
 ---
 
@@ -194,7 +198,7 @@ public class Main {
 
 ![Implementasi List](https://user-images.githubusercontent.com/69947442/127863083-2667d142-d54d-4eee-9446-f174f2aded9f.png)
 
-## <a name="arraylist-class" href="#daftar-isi">ArrayList Class</a>
+## <span name="arraylist-class" href="#daftar-isi">ArrayList Class</span>
 
 ---
 
@@ -230,7 +234,7 @@ public class Main {
 }
 ```
 
-## <a name="linkedlist-class" href="#daftar-isi">LinkedList Class</a>
+## <span name="linkedlist-class" href="#daftar-isi">LinkedList Class</span>
 
 ---
 
@@ -278,7 +282,7 @@ public class Main {
 |`set`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu nodenya|
 |`remove`|Lambat karena harus menggeser data di belakang yang di hapus|Lambat karena ada kemungkinan node yang dihapus di akhir array, jadi harus mengakses seluruh node|
 
-## <a name="immutable-list" href="#daftar-isi">Immutable List</a>
+## <span name="immutable-list" href="#daftar-isi">Immutable List</span>
 
 ---
 
@@ -363,7 +367,7 @@ public class ImmutableList {
 }
 ```
 
-## <a name="set-interface" href="#daftar-isi">Set Interface</a>
+## <span name="set-interface" href="#daftar-isi">Set Interface</span>
 
 - Set adalah salah satu collection yang berisikan element `unik`, data duplikat akan di timpa
 - Set `tidak memiliki index`, karena ketika kita memasukkan data kedalam set, set akan secara otomatis `mengurut` data
@@ -424,12 +428,12 @@ public class MyEnumSet {
 }
 ```
 
-## Immutable Set
+## <span name="immutable-set" href="#daftar-isi">Immutable Set</span>
 
 - Sama seperti list, Java juga mendukung pembuatan `Immutable Set`
 - Cara pembuatan `Immutable Set` mirip dengan pembuatan `Immutable List`
 
-### Membuat Immutable List
+### Membuat Immutable Set
 
 |Method|Keterangan|
 |------|----------|
@@ -438,7 +442,7 @@ public class MyEnumSet {
 |`Collections.unmodifiableSet(list)`|Mengubah mutable set menjadi immutable list|
 |`Set.of(e..)`|Membuat immutable set dari beberapa element|
 
-## SortedSet Interface
+## <span name="sortedset-interface" href="#daftar-isi">SortedSet Interface</span>
 
 - SortedSet adalah turunan dari Set, namun di SortedSet elemen-elemen yang dimasukkan akan diurutkan secara `natural`
 - Jika elemen yang dimasukkan merupakan turunan dari `Comparable`, maka secara otomatis akan diurutkan berdasarkan
@@ -503,7 +507,7 @@ Documentation:
 |`Collections.emptySortedSet()`|Membuat immutable sorted set kosong|
 |`Collections.unmodifiableSortedSet()`|Mengubah mutable sorted set menjadi immutable|
 
-## NavigableSet Interface
+## <span name="navigable-set" href="#daftar-isi">Navigable Set</span>
 
 - NavigableSet adalah `turunan` dari SortedSet
 - NavigableSet `menambah method-method untuk melakukan navigasi pencarian elemen`, seperti mencari elemen yang lebih
@@ -554,7 +558,7 @@ public class MyNavigableSet {
 |`Collections.emptyNavigableSet()`|Membuat immutable navigable set kosong|
 |`Collections.unmodifiableNavigableSet()`|Mengubah mutable navigable set menjadi immutable|
 
-## Queue Interface
+## <span name="queue-interface" href="#daftar-isi">Queue Interface</span>
 
 - Queue adalah implementasi dari Antrian
 - Queue bersifat `FIFO (First In First Out)`
@@ -613,7 +617,7 @@ public class MyArrayDeque {
 }
 ```
 
-## Deque Interface
+## <span name="deque-interface" href="#daftar-isi">Deque Interface</span>
 
 - Deque singkatan dari `Double Ended Queue`, artinya queue yang bisa beroperasi dari depan dan belakang
 - Jika pada queue, operasi yang didukun ada `FIFO`, pada Deque juga mendukung operasi `LIFO (Last In First Out)`
