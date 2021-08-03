@@ -655,3 +655,18 @@ public class MyDeque {
     }
 }
 ```
+
+## <span name="map-interface">Map Interface</span>
+
+- Map adalah struktur data collection yang berisikan mapping antara `key` dan `value`
+- Dimana key di map itu harus `unik`, tidak boleh duplikat, dan satu key cuma boleh mapping ke satu value
+- Map sebenarnya mirip dengan Array, cuma bedanya kita bisa merubah indexing dengan tipe data sesuai dengan keinginan
+  kita
+  
+### Method-method di Map
+
+![Method-method di Map](https://user-images.githubusercontent.com/69947442/128002023-23a15623-bc8f-45f7-8690-ce4926a3df12.png)
+
+### Implementasi Map
+
+![Implementasi Map](https://user-images.githubusercontent.com/69947442/128002017-5571f353-8e9c-47fa-8987-1f7bbd2a2a1d.png)
