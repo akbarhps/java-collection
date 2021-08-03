@@ -826,3 +826,49 @@ public class MyEnumMap {
 |------|----------|
 |`Collections.emptySortedMap()`|Membuat immutable sorted map kosong|
 |`Collections.unmodifiableSortedMap(map)`|Mengubah mutable sorted map menjadi immutable|
+
+## NavigableMap
+
+- NavigableMap adlaah turunan dari SortedMap
+- NavigableMap memiliki kemampuan navigasi berdasarkan operasi kurang dari, lebih dari, dan sejenisnya
+- Misal, kita ingin mengambil data yang lebih dari key x atau kurang dari key y, ini bisa dilakukan di NavigableMap
+
+### Method-method di NavigableMap
+
+![Method-method di NavigableMap](https://user-images.githubusercontent.com/69947442/128017214-27111146-cd55-4aa6-be9a-b83ff1fecad1.png)
+
+### Implementasi NavigableMap
+
+![Implementasi NavigableMap](https://user-images.githubusercontent.com/69947442/128017200-ba0508b3-0a43-49a6-aa14-de2e904d9637.png)
+
+Contoh:
+
+```java
+public class MyNavigableMap {
+    public static void main(String[] args) {
+        NavigableMap<String, String> map = new TreeMap<>(
+                Map.of(
+                        "1", "Akbar",
+                        "3", "Putra",
+                        "4", "Siregar",
+                        "2", "Hasadi"
+                )
+        );
+        System.out.println(map);
+        // output: {1=Akbar, 2=Hasadi, 3=Putra, 4=Siregar}
+
+        System.out.println(map.lowerEntry("1"));
+        // output: null
+
+        System.out.println(map.higherEntry("2"));
+        // output: 3=Putra
+    }
+}
+```
+
+### Membuat Immutable NavigableMap
+
+|Method|Keterangan|
+|------|----------|
+|`Collections.emptyNavigableMap()`|Membuat immutable navigable map kosong|
+|`Collections.unmodifiableNavigableMap(map)`|Mengubah mutable navigable map menjadi immutable|
