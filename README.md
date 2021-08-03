@@ -553,3 +553,61 @@ public class MyNavigableSet {
 |---|---|
 |`Collections.emptyNavigableSet()`|Membuat immutable navigable set kosong|
 |`Collections.unmodifiableNavigableSet()`|Mengubah mutable navigable set menjadi immutable|
+
+## Queue Interface
+
+- Queue atau Antrian bersifat `FIFO (First In First Out)`
+
+### Method-method di Queue Interface
+
+![Method-method di Queue Interface](https://user-images.githubusercontent.com/69947442/127953666-e50a283b-0734-4fcf-af26-0caa71b16992.png)
+
+### Implementasi Queue
+
+![iq](https://user-images.githubusercontent.com/69947442/127953658-ff1ecbab-326d-41ce-8d0f-b6e8f9c5463f.png)
+
+### ArrayDeque vs LinkedList vs PriorityQueue
+
+|Implementasi|Cara Implementasi|
+|---|---|
+|`ArrayDeque`|Menggunakan `Array` sebagai implementasi queue nya|
+|`LinkedList`|Menggunakan `Double LinkedList` sebagai implementasi queue nya|
+|`PriorityQueue`|Mengunakan `Array` sebagai implementasi queue nya, namun diurutkan menggunakan `Comparable` atau `Comparator`
+
+Contoh:
+
+```java
+public class MyArrayDeque {
+    public static void main(String[] args) {
+        Queue<String> arrayDeque = new ArrayDeque<>(
+                List.of("Hasadi", "Siregar", "Akbar", "Putra")
+        );
+        Queue<String> linkedListQueue = new LinkedList<>(
+                List.of("Hasadi", "Siregar", "Akbar", "Putra")
+        );
+        Queue<String> priorityQueue = new PriorityQueue<>(
+                List.of("Hasadi", "Siregar", "Akbar", "Putra")
+        );
+
+        System.out.println(arrayDeque);
+        // output: [Hasadi, Siregar, Akbar, Putra]
+        System.out.println(linkedListQueue);
+        // output: [Hasadi, Siregar, Akbar, Putra]
+        System.out.println(priorityQueue);
+        // output: [Hasadi, Siregar, Akbar, Putra]
+
+        // menghapus elemen pertama dan return nilainya
+        System.out.println(arrayDeque.poll());
+        // output: Hasadi
+        System.out.println(linkedListQueue.poll());
+        // output: Hasadi
+        System.out.println(priorityQueue.poll());
+        // output: Akbar
+
+        System.out.println(arrayDeque.size());
+        System.out.println(linkedListQueue.size());
+        System.out.println(priorityQueue.size());
+        // output: 3
+    }
+}
+```
