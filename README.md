@@ -10,7 +10,19 @@ Sumber Tutorial:
 [Youtube](https://www.youtube.com/watch?v=_JEMfq4k2O4) |
 [Slide](https://docs.google.com/presentation/d/1IybRjjqE2hIrrq2aLbZ1qw_7o6vhgg27dVZVc4gQF9g/edit#slide=id.p)
 
-## Pengenalan Collection
+## <a name="daftar-isi">Daftar Isi</a>
+
+- [Pengenalan Collection](#pengenalan-collection)
+- [Java Collection Interface](#java-collection-interface)
+- [Iterable Interface](#iterable-interface)
+- [Iterator Interface](#iterator-interface)
+- [Collection Interface](#collection-interface)
+- [ArrayList Class](#arraylist-class)
+- [LinkedList Class](#linkedlist-class)
+- [Immutable List](#immutable-list)
+- [Set Interface](#set-interface)
+
+## <a name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</a>
 
 ---
 
@@ -21,7 +33,7 @@ Sumber Tutorial:
 - Semua class collection di Java adalah `Generic Class`, sehingga kita bisa menggunakan Java Collection dengan tipe data
   apapun
 
-## Java Collection
+## <a name="java-collection" href="#daftar-isi">Java Collection</a>
 
 ---
 
@@ -32,7 +44,7 @@ Sumber Tutorial:
 - `Algorithms`, Java juga sudah menyediakan algoritma-algoritma yang umum digunakan di collection, seperti pencarian dan
   pengurutan data
 
-## Java Collection Interface
+## <a name="java-collection-interface" href="#daftar-isi">Java Collection Interface</a>
 
 ---
 
@@ -40,7 +52,7 @@ Sumber Tutorial:
 
 ![Java Collection Interface UML](https://user-images.githubusercontent.com/69947442/127863095-d904bc42-e779-46ff-ba25-1fa2252e9866.png)
 
-## Iterable Interface
+## <a name="iterable-interface" href="#daftar-isi">Iterable Interface</a>
 
 ---
 
@@ -64,7 +76,7 @@ public class Main {
 // Output: Akbar Hasadi Putra Siregar
 ```
 
-## Iterator Interface
+## <a name="iterator-interface" href="#daftar-isi">Iterator Interface</a>
 
 ---
 
@@ -114,7 +126,7 @@ Documentation:
  */
 ```
 
-## Collection Interface
+## <a name="collection-interface" href="#daftar-isi">Collection Interface</a>
 
 ---
 
@@ -164,7 +176,7 @@ public class Main {
 }
 ```
 
-## List Interface
+## <a name="list-interface" href="#daftar-isi">List Interface</a>
 
 ---
 
@@ -181,7 +193,7 @@ public class Main {
 
 ![Implementasi List](https://user-images.githubusercontent.com/69947442/127863083-2667d142-d54d-4eee-9446-f174f2aded9f.png)
 
-## ArrayList Class
+## <a name="arraylist-class" href="#daftar-isi">ArrayList Class</a>
 
 ---
 
@@ -217,7 +229,7 @@ public class Main {
 }
 ```
 
-## LinkedList Class
+## <a name="linkedlist-class" href="#daftar-isi">LinkedList Class</a>
 
 ---
 
@@ -254,7 +266,7 @@ public class Main {
 }
 ``` 
 
-### ArrayList vs LinkedList  
+### ArrayList vs LinkedList
 
 ---
 
@@ -265,13 +277,13 @@ public class Main {
 |`set`|Cepat karena tinggal gunakan index|Lambat karena harus di cek dari node awal sampai ketemu nodenya|
 |`remove`|Lambat karena harus menggeser data di belakang yang di hapus|Lambat karena ada kemungkinan node yang dihapus di akhir array, jadi harus mengakses seluruh node|
 
-## Immutable List
+## <a name="immutable-list" href="#daftar-isi">Immutable List</a>
 
 ---
 
-- Secara default, List di java bersifat `Mutable` (dapat di re-initialize)
-- Di Java mendukung pembuatan `Immutable List` (sama seperti variable final)
-- Element `Immutable List` tetap dapat diubah
+- Secara default, List di java bersifat `Mutable`
+- Di Java mendukung pembuatan `Immutable List`
+- Element pada ` ` tidak dapat ditambah atau dihapus
 
 Contoh:
 
@@ -346,6 +358,67 @@ public class ImmutableList {
         List<Integer> list = List.of(1, 2, 3);
         List<Integer> modifiableList = new ArrayList<>(list);
         List<Integer> unmodifiableList = Collections.unmodifiableList(modifiableList);
+    }
+}
+```
+
+## <a name="set-interface" href="#daftar-isi">Set Interface</a>
+
+- Set adalah salah satu collection yang berisikan element `unik`, data duplikat akan di timpa
+- Set `tidak memiliki index`, karena ketika kita memasukkan data kedalam set, set akan secara otomatis `mengurut` data
+  tersebut
+- Method pada set sama seperti method yang ada di `Collection` dan `Iterable`
+- Karena set tidak memiliki index, maka untuk mengambil data hanya bisa dilakukan dengan cara `iterasi` satu per satu
+
+### Implementasi Set
+
+![Implementasi Set](https://user-images.githubusercontent.com/69947442/127940862-89c4ed8f-570f-46ec-9d35-b07fa13af4e8.png)
+
+### HashSet vs LinkedHashSet
+
+|HashSet|LinkedHashSet|
+|-------|-------------|
+|Menggunakan hash table untuk menyimpan datanya|Menggunakan hash table untuk menyimpan datanya|
+|Menggunakan method `hashCode()` untuk membedakan data|Menggunakan method `hashCode()` untuk membedakan data|
+|Terurut sesuai dengan `value`|Terurut sesuai dengan `index` input|
+
+Contoh:
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Set<Integer> hashSet = new HashSet<>(
+                List.of(5, 1, 3, 9, 6, 8, 5)
+        );
+        System.out.println(hashSet);
+        // output: [1, 3, 5, 6, 8, 9]
+
+        Set<Integer> linkedHashSet = new LinkedHashSet<>(
+                List.of(5, 1, 3, 9, 6, 8, 5)
+        );
+        System.out.println(linkedHashet);
+        // output: [5, 1, 3, 9, 6, 8]
+    }
+}
+```
+
+### Enum Set
+
+- EnumSet adalah `Set` yang elemen datanya harus `Enum`
+- Karena data `Enum` itu unik, sehingga sangat cocok menggunakan `Set` dibandingkan `List`
+
+Contoh:
+
+```java
+public class MyEnumSet {
+    public enum Gender {
+        MALE, FEMALE, NOT_MENTIONED
+    }
+    
+    public static void main(String[] args) {
+        Set<Gender> genders = EnumSet.allOf(Gender.class);
+        System.out.println(genders);
+        // output: [MALE, FEMALE, NOT_MENTIONED]
     }
 }
 ```
