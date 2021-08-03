@@ -506,9 +506,9 @@ Documentation:
 ## NavigableSet Interface
 
 - NavigableSet adalah `turunan` dari SortedSet
-- NavigableSet `menambah method-method untuk melakukan navigasi pencarian elemen`, seperti mencari elemen yang lebih besar
-  dari, kurang dari, membalikkan urutan set, dan lainnya
-  
+- NavigableSet `menambah method-method untuk melakukan navigasi pencarian elemen`, seperti mencari elemen yang lebih
+  besar dari, kurang dari, membalikkan urutan set, dan lainnya
+
 ### Method-method di Navigableset
 
 ![Method-method di Navigableset](https://user-images.githubusercontent.com/69947442/127952283-49bd1bc5-8921-4d0f-9319-537db6920744.png)
@@ -546,3 +546,10 @@ public class MyNavigableSet {
     }
 }
 ```
+
+### Membuat Immutable NavigableSet
+
+|Method|Keterangan|
+|---|---|
+|`Collections.emptyNavigableSet()`|Membuat immutable navigable set kosong|
+|`Collections.unmodifiableNavigableSet()`|Mengubah mutable navigable set menjadi immutable|
