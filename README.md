@@ -556,7 +556,8 @@ public class MyNavigableSet {
 
 ## Queue Interface
 
-- Queue atau Antrian bersifat `FIFO (First In First Out)`
+- Queue adalah implementasi dari Antrian
+- Queue bersifat `FIFO (First In First Out)`
 
 ### Method-method di Queue Interface
 
@@ -594,7 +595,7 @@ public class MyArrayDeque {
         System.out.println(linkedListQueue);
         // output: [Hasadi, Siregar, Akbar, Putra]
         System.out.println(priorityQueue);
-        // output: [Hasadi, Siregar, Akbar, Putra]
+        // output: [Akbar, Hasadi, Putra, Siregar]
 
         // menghapus elemen pertama dan return nilainya
         System.out.println(arrayDeque.poll());
@@ -608,6 +609,45 @@ public class MyArrayDeque {
         System.out.println(linkedListQueue.size());
         System.out.println(priorityQueue.size());
         // output: 3
+    }
+}
+```
+
+## Deque Interface
+
+- Deque singkatan dari `Double Ended Queue`, artinya queue yang bisa beroperasi dari depan dan belakang
+- Jika pada queue, operasi yang didukun ada `FIFO`, pada Deque juga mendukung operasi `LIFO (Last In First Out)`
+- Deque adalah implementasi dari Stack (Tumpukan)
+
+### Method-method di Deque
+
+![Method-method di Deque](https://user-images.githubusercontent.com/69947442/127956539-461e1c76-24d3-4d4b-8474-783f9f859825.png)
+
+### Implementasi Deque
+
+![Implementasi Deque](https://user-images.githubusercontent.com/69947442/127956534-0d72cff9-d1ed-4dc9-9b1b-9190cda28735.png)
+
+Contoh:
+
+```java
+public class MyDeque {
+    public static void main(String[] args) {
+        Deque<String> stack = new ArrayDeque<>(
+                List.of("Hasadi", "Putra", "Siregar")
+        );
+        stack.offerFirst("Akbar");
+
+        System.out.println(stack);
+        // output: [Akbar, Hasadi, Siregar, Putra]
+
+        System.out.println(stack.pollLast());
+        // output: Akbar
+
+        System.out.println(stack.pollFirst());
+        // output: Hasadi
+
+        System.out.println(stack.size());
+        // output: 2
     }
 }
 ```
