@@ -901,3 +901,68 @@ public class MyEntryInterface {
     }
 }
 ```
+
+## Legacy Collection
+
+- Collection sudah ada sejak Java 1, namun semakin kesini, Java Collection semakin berkembang
+- Sebenarnya ada beberapa legacy collecton (collection jadul) yang belum kita bahas, namun jarang sekali digunakan
+  sekarang ini
+
+## Vector Class
+
+- Vector class adalah implementasi dari Interface List
+- Cara kerja Vector mirip dengan ArrayList, yang membedakan adalah semua method di Vector menggunakan kata kunci
+  synchronized yang artinya thread safe
+- Namun masalahnya adalah, thread safe tersebut ber-impact kepada perfomance yang menjadi lebih lambat dibandingkan
+  ArrayList
+- Lantas bagaimana jika kita ingin membuat List yang bisa digunakan di proses paralel? di Java versi baru sudah
+  disediakan yang lebih canggih untuk itu, oleh karena itu penggunaan Vector sudah jarang sekali ditemui sekarang
+
+## Hashtable Class
+
+- Hashtable adalah implementasi dari Map yang mirip dengan HashMap
+- Sama seperti Vector, semua method di Hashtable memiliki kata kunci synchronized, sehingga performanya lebih lambat
+  dibandingkan dengan HashMap
+- Di Java versi baru sudah ada juga ConcurrentHashMap, sehingga penggunaan Hashtable sudah jarang sekali ditemui
+
+Contoh:
+
+```java
+public class MyHashtable {
+    public static void main(String[] args) {
+        Map<String, String> map = new Hashtable<>(
+                Map.of(
+                        "1", "Akbar",
+                        "2", "Hasadi",
+                        "3", "Putra",
+                        "4", "Siregar"
+                )
+        );
+        System.out.println(map);
+        // output: {4=Siregar, 3=Putra, 2=Hasadi, 1=Akbar}
+    }
+}
+```
+
+## Stack Class
+
+- Stack adalah implementasi struktur data tumpukan (stack)
+- Stack bersifat LIFO (Last In First Out)
+- Namun fitur yang lebih komplit dan konsisten sudah disediakan di Deque, jadi tidak ada alasan lagi menggunakan class
+  Stack
+
+Contoh:
+
+```java
+public class MyStack {
+    public static void main(String[] args) {
+        Stack<String> stack = new Stack<>();
+        stack.push("Akbar");
+        stack.push("Hasadi");
+        stack.push("Putra");
+        stack.pop();
+        System.out.println(stack);
+        // output: [Akbar, Hasadi]
+    }
+}
+```
