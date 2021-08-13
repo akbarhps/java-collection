@@ -1025,8 +1025,10 @@ public class Sorting {
 
 ## <span name="binary-search">Binary Search</span>
 
-- Secara default, List di Java memiliki fitur search atau get data, namun implementasinya menggunakan sequential search, artinya data akan dicek satu persatu dari awal
-- Salah satu algoritma pencarian yang populer adalah Binary Search, namun Binary Search hanya bisa dilakukan jika datanya terurut
+- Secara default, List di Java memiliki fitur search atau get data, namun implementasinya menggunakan sequential search,
+  artinya data akan dicek satu persatu dari awal
+- Salah satu algoritma pencarian yang populer adalah Binary Search, namun Binary Search hanya bisa dilakukan jika
+  datanya terurut
 - Untungnya di Java Collection sudah ada implementasi Binary Search, sehingga kita tidak perlu membuatnya secara manual
 
 ### Binary Search di List
@@ -1045,6 +1047,44 @@ public class BinarySearch {
                 List.of("Akbar", "Bakbar", "Cakbar", "Dakbar", "Eakbar", "Fakbar")
         );
         System.out.println(Collections.binarySearch(list, "Eakbar")); // 4
+    }
+}
+```
+
+## <span name="collections-class">Collections Class</span>
+
+- Collections adalah class yang berisikan `utility static method` untuk membantu kita menggunakan Java Collection
+- Di materi-materi sebelumnya kita sudah bahas beberapa penggunaan dari Collections Class, salah satunya
+  membuat `Immutable Collection`
+- Namun sebenarnya masih ada banyak static method yang bisa kita gunakan di class Collections
+- [Collections Documentation](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Collections.html)
+
+### Static Method di Collections Class
+
+|Method|Keterangan|
+|---|---|
+|`void copy(listTo, listFrom)`|Copy semua data dari listFrom ke listTo|
+|`int frequency(collection, object)`|Menghitung jumlah object didalam collection|
+|`max(collection)`|Mencari element maksimal di collection|
+|`max(collection, comparator)`|Mencari element maksimal di collection menggunakan comparator|
+|`min(collection)`|Mencari element minimum di collection|
+|`min(collection, comparator)`|Mencari element minimum di collection menggunakan comparator|
+|`void reverse(list)`|Membalikkan posisi element di list|
+|`void shuffle(list)`|Mengacak posisi element di list|
+|`void swap(list, from, to)`|Menukar posisi element from ke index to pada list|
+|...|Selebihnya lihat documentation|
+
+Contoh:
+
+```java
+public class MyCollectionsClass {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(List.of(1, 2, 3, 4));
+        System.out.println(list); // [1, 2, 3, 4]
+        Collections.shuffle(list);
+        System.out.println(list); // [2, 1, 3, 4]
+        Collections.reverse(list);
+        System.out.println(list); // [4, 3, 1, 2]
     }
 }
 ```
