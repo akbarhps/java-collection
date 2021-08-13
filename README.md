@@ -26,6 +26,18 @@ Sumber Tutorial:
 - [Navigable Set](#navigable-set)
 - [Queue Interface](#queue-interface)
 - [Deque Interface](#deque-interface)
+- [HashMap](#hash-map)
+- [Weak HashMap](#weak-hash-map)
+- [Identity HashMap](#identity-hash-map)
+- [Linked HashMap](#linked-hash-map)
+- [Enum Map](#enum-map)
+- [Sorted Interface](#sorted-interface)
+- [Navigable Map](#navigable-map)
+- [Entry Interface](#entry-interface)
+- [Legacy Collection](#legacy-collection)
+- [Vector Class](#vector-class)
+- [HashTable Class](#hash-table-class)
+- [Stack Class](#stack-class)
 
 ## <span name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</span>
 
@@ -671,7 +683,7 @@ public class MyDeque {
 
 ![Implementasi Map](https://user-images.githubusercontent.com/69947442/128002017-5571f353-8e9c-47fa-8987-1f7bbd2a2a1d.png)
 
-## HashMap
+## <span name="hash-map">HashMap</span>
 
 - HashMap adalah implementasi Map yang melakukan distribusi key menggunakan method `hashCode()`
 - Karena HashMap sangat bergantung dengan method `hashCode()`, jadi pastikan kita harus membuat method `hashCode()`
@@ -693,7 +705,7 @@ public class MyHashMap {
 }
 ```
 
-## WeakHashMap
+## <span name="weak-hash-map">Weak HashMap</span>
 
 - WeakHashMap sama seperti HashMap
 - Bedanya WeakHashMap menggunakan weak key, dimana jika key tidak lagi digunakan, maka secara otomatis akan dihapus
@@ -717,7 +729,7 @@ public class MyWeakHashMap {
 }
 ```
 
-## IndentityHashMap
+## <span name="identity-hash-map">Identity HashMap</span>
 
 - IdentityHashMap sama seperti HashMap
 - Bedanya adalah IdentityHashMap menggunakan `Reference Equality (Operator ==)` untuk mengecek kesamaan datanya
@@ -750,7 +762,7 @@ public class MyIdentityHashMap {
 }
 ```
 
-## LinkedHashMap
+## <span name="linked-hash-map">Linked HashMap</span>
 
 - LinkedHashMap adalah implementasi Map dengan menggunakan `Double LinkedList`
 - Data di LinkedHashMap akan lebih terprediksi karena datanya akan disimpan berurutan dalam `LinkedList` sesuai urutan
@@ -771,7 +783,7 @@ public class MyLinkedHashMap {
 }
 ```
 
-## EnumMap
+## <span name="enum-map">Enum Map</span>
 
 - EnumMap adalah implementasi Map dimana key nya adalah enum
 - Algoritma pendistribusian key dioptimalkan untuk enum, sehingga lebih optimal dibandingkan menggunakan
@@ -806,7 +818,7 @@ public class MyEnumMap {
 |`Collections.unmodifiableMap(map)`|Mengubah mutable map menjadi immutable|
 |`Map.of(key, value)`|Membuat immutable map dari key-value|
 
-## SortedMap Interface
+## <span name="sorted-interface">Sorted Interface</span>
 
 - SortedMap adalah implementasi Map dengan data key diurutkan sesuai dengan Comparable key atau bisa menggunakan
   Comparator
@@ -827,7 +839,7 @@ public class MyEnumMap {
 |`Collections.emptySortedMap()`|Membuat immutable sorted map kosong|
 |`Collections.unmodifiableSortedMap(map)`|Mengubah mutable sorted map menjadi immutable|
 
-## NavigableMap
+## <span name="navigable-map">Navigable Map</span>
 
 - NavigableMap adlaah turunan dari SortedMap
 - NavigableMap memiliki kemampuan navigasi berdasarkan operasi kurang dari, lebih dari, dan sejenisnya
@@ -873,7 +885,7 @@ public class MyNavigableMap {
 |`Collections.emptyNavigableMap()`|Membuat immutable navigable map kosong|
 |`Collections.unmodifiableNavigableMap(map)`|Mengubah mutable navigable map menjadi immutable|
 
-## Entry Interface
+## <span name="entry-interface">Entry Interface</span>
 
 - Saat kita menyimpan data di Map, data disimpan dalam pair (key, value)
 - Di Java Collection, implementasi Pair di Map bernama Entry
@@ -902,13 +914,13 @@ public class MyEntryInterface {
 }
 ```
 
-## Legacy Collection
+## <span name="legacy-collection">Legacy Collection</span>
 
 - Collection sudah ada sejak Java 1, namun semakin kesini, Java Collection semakin berkembang
 - Sebenarnya ada beberapa legacy collecton (collection jadul) yang belum kita bahas, namun jarang sekali digunakan
   sekarang ini
 
-## Vector Class
+## <span name="vector-class">Vector Class</span>
 
 - Vector class adalah implementasi dari Interface List
 - Cara kerja Vector mirip dengan ArrayList, yang membedakan adalah semua method di Vector menggunakan kata kunci
@@ -932,7 +944,7 @@ public class MyVector {
 }
 ```
 
-## Hashtable Class
+## <span name="hash-table-class">HashTable Class</span>
 
 - Hashtable adalah implementasi dari Map yang mirip dengan HashMap
 - Sama seperti Vector, semua method di Hashtable memiliki kata kunci synchronized, sehingga performanya lebih lambat
@@ -958,7 +970,7 @@ public class MyHashtable {
 }
 ```
 
-## Stack Class
+## <span name="stack-class">Stack Class</span>
 
 - Stack adalah implementasi struktur data tumpukan (stack)
 - Stack bersifat LIFO (Last In First Out)
@@ -977,6 +989,34 @@ public class MyStack {
         stack.pop();
         System.out.println(stack);
         // output: [Akbar, Hasadi]
+    }
+}
+```
+
+## <span name="sorting">Sorting</span>
+
+- Sorting atau pengurutan adalah algoritma yang sudah biasa kita lakukan
+- Di Java Collection juga sudah disediakan cara untuk melakukan pengurutan, jadi kita tidak perlu melakukan pengurutan secara manual
+- Namun perlu diingat, yang bisa di `Sort` hanyalah `List`, karena `Set`, `Queue`, `Deque` dan `Map` cara kerjanya sudah khusus, jadi pengurutan hanya bisa dilakukan di `List`
+
+### Sorting di List
+
+|Method|Keterangan|
+|---|---|
+|`Collections.sort(list)`|Mengurutkan list dengan comparable bawaan element|
+|`Collections.sort(list, comparator)`|Mengurutkan list dengan comparator|
+
+Contoh:
+
+```java
+public class Sorting {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(
+                List.of(5, 2, 3, 5, 457, 45, 6, 234, 24, 2, 5, 245, 34)
+        );
+        System.out.println(list); // [5, 2, 3, 5, 457, 45, 6, 234, 24, 2, 5, 245, 34]
+        Collections.sort(list);
+        System.out.println(list); // [2, 2, 3, 5, 5, 5, 6, 24, 34, 45, 234, 245, 457]
     }
 }
 ```
