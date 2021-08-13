@@ -996,8 +996,10 @@ public class MyStack {
 ## <span name="sorting">Sorting</span>
 
 - Sorting atau pengurutan adalah algoritma yang sudah biasa kita lakukan
-- Di Java Collection juga sudah disediakan cara untuk melakukan pengurutan, jadi kita tidak perlu melakukan pengurutan secara manual
-- Namun perlu diingat, yang bisa di `Sort` hanyalah `List`, karena `Set`, `Queue`, `Deque` dan `Map` cara kerjanya sudah khusus, jadi pengurutan hanya bisa dilakukan di `List`
+- Di Java Collection juga sudah disediakan cara untuk melakukan pengurutan, jadi kita tidak perlu melakukan pengurutan
+  secara manual
+- Namun perlu diingat, yang bisa di `Sort` hanyalah `List`, karena `Set`, `Queue`, `Deque` dan `Map` cara kerjanya sudah
+  khusus, jadi pengurutan hanya bisa dilakukan di `List`
 
 ### Sorting di List
 
@@ -1017,6 +1019,32 @@ public class Sorting {
         System.out.println(list); // [5, 2, 3, 5, 457, 45, 6, 234, 24, 2, 5, 245, 34]
         Collections.sort(list);
         System.out.println(list); // [2, 2, 3, 5, 5, 5, 6, 24, 34, 45, 234, 245, 457]
+    }
+}
+```
+
+## <span name="binary-search">Binary Search</span>
+
+- Secara default, List di Java memiliki fitur search atau get data, namun implementasinya menggunakan sequential search, artinya data akan dicek satu persatu dari awal
+- Salah satu algoritma pencarian yang populer adalah Binary Search, namun Binary Search hanya bisa dilakukan jika datanya terurut
+- Untungnya di Java Collection sudah ada implementasi Binary Search, sehingga kita tidak perlu membuatnya secara manual
+
+### Binary Search di List
+
+|Method|Keterangan|
+|---|---|
+|`Collections.binarySearch(list, value)`|Mencari menggunakan binary search|
+|`Collections.binarySearch(list, value, comparator)`|Mencari menggunakan binary search dengan bantuan comparator|
+
+Contoh:
+
+```java
+public class BinarySearch {
+    public static void main(String[] args) {
+        List<String> list = new ArrayList<>(
+                List.of("Akbar", "Bakbar", "Cakbar", "Dakbar", "Eakbar", "Fakbar")
+        );
+        System.out.println(Collections.binarySearch(list, "Eakbar")); // 4
     }
 }
 ```
