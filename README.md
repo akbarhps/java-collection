@@ -38,6 +38,12 @@ Sumber Tutorial:
 - [Vector Class](#vector-class)
 - [HashTable Class](#hash-table-class)
 - [Stack Class](#stack-class)
+- [Sorting](#sorting)
+- [Binary Search](#binary-search)
+- [Collections Class](#collections-class)
+- [Default Method](#default-method)
+- [Spliterator Interface](#spliterator-interface)
+- [Konversi ke Array](#konversi-array)
 
 ## <span name="pengenalan-collection" href="#daftar-isi">Pengenalan Collection</span>
 
@@ -1072,7 +1078,7 @@ public class BinarySearch {
 |`void reverse(list)`|Membalikkan posisi element di list|
 |`void shuffle(list)`|Mengacak posisi element di list|
 |`void swap(list, from, to)`|Menukar posisi element from ke index to pada list|
-|...|Selebihnya lihat documentation|
+|...|[Selebihnya lihat documentation](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Collections.html)|
 
 Contoh:
 
@@ -1114,7 +1120,7 @@ Contoh:
 public class SingleQueue<E> extends AbstractQueue<E> {
 
     private E data;
-  
+
     @Override
     public Iterator<E> iterator() {
         return Collections.singleton(data).iterator();
@@ -1123,6 +1129,120 @@ public class SingleQueue<E> extends AbstractQueue<E> {
     @Override
     public int size() {
         return data == null ? 0 : 1;
+    }
+}
+```
+
+## <span name="default-method">Default Method</span>
+
+- Di Java 8 ada fitur bernama Default Method, dimana kita bisa menambahkan konkrit method di interface
+- Fitur ini banyak sekali digunakan di Java Collection, karena kita tahu semua collection di Java memiliki kontrak
+  interface, sehingga dengan mudah di Java bisa meng-improve kemampuan semua collection hanya dengan menambahkan default
+  method di interface collection nya
+
+### Default Method di Collection
+
+|Method|Keterangan|
+|---|---|
+|`forEach(consumer)`|Melakukan iterasi seluruh data collection|
+|`removeIf(predicate)`|Menghapus data di collection menggunakan predicate|
+|`replaceAll(operator)`|Mengubah seluruh data di collection|
+
+Contoh:
+
+```java
+public class DefaultMethodCollection {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(
+                List.of(1, 2, 3, 4, 5, 6, 7, 8, 9)
+        );
+        list.replaceAll(integer -> integer * 10);
+        System.out.println(list); // [10, 20, 30, 40, 50, 60, 70, 80, 90]
+    }
+}
+```
+
+### Default Method di Map
+
+|Method|Keterangan|
+|---|---|
+|`getOrDefault(key, defaultValue)`|Mengambil data berdasarkan key, jika tidak ada return defaultValue|
+|`forEach(consumer)`|Melakukan iterasi seluruh data key-value|
+|`replaceAll(function)`|Mengubah seluruh data value|
+|`putIfAbsent(key, value)`|Simpan data ke map jika belum ada|
+|`remove(key, value)`|Hapus jika key-value nya sama|
+|`replace(key, oldValue, newValue)`|Ubah key jika value sekarang sama dengan oldValue|
+|`computeIfAbsent(key, function)`|Ubah key dengan value hasil function jika belum ada|
+|`computeIfPresent(key, function)`|Ubah key dengan value hasil function jika sudah ada|
+|...|Selebihnya cek documentation|
+
+Contoh:
+
+```java
+public class DefaultMethodMap {
+    public static void main(String[] args) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Akbar", 9191919);
+        map.replaceAll((s, integer) -> integer / 1010);
+        System.out.println(map.get("Akbar")); // 9100
+    }
+}
+```
+
+## <span name="spliterator-interface">Spliterator Interface</span>
+
+- Spliterator adalah interface yang bisa digunakan untuk melakukan partisi data collection
+- Biasanya ini digunakan ketika kita akan memproses collection dalam jumlah besar, lalu agar lebih cepat di split
+  menjadi beberapa dan diproses secara paralel agar lebih cepat
+- Penggunaan Spliterator biasanya erat kaitannya dengan `Java Thread` atau `Java Concurrency`, namun di materi ini kita
+  tidak akan membahas tentang itu, lebih fokus ke Spliterator
+
+### Method-method di Spliterator
+
+![Method-method di Spliterator](https://user-images.githubusercontent.com/69947442/129355687-db3f1012-783b-4c11-b312-5e7704d1fa77.png)
+
+Contoh:
+
+```java
+public class MySpliterator {
+    public static void main(String[] args) {
+        List<String> list = List.of("Akbar", "Hasadi", "Putra", "Siregar", "Ganteng", "Bet", "Seriusan", "Ga", "Boong");
+        Spliterator<String> spliterator1 = list.spliterator();
+        Spliterator<String> spliterator2 = spliterator1.trySplit();
+
+        System.out.println(spliterator1.estimateSize()); // 5
+        spliterator1.forEachRemaining(s -> System.out.print(s + " ")); // Ganteng Bet Seriusan Ga Boong
+        System.out.println(spliterator2.estimateSize()); // 4
+        spliterator2.forEachRemaining(s -> System.out.print(s + " ")); // Akbar Hasadi Putra Siregar
+    }
+}
+```
+
+## <span name="konversi-array">Konversi ke Array</span>
+
+- Collection Interface memiliki method `toArray()` untuk melakukan konversi collection ke Array
+- Ini sangat cocok jika kita ingin mengubah collection ke Array, misal saja karena mau memanggil method yang memang
+  parameternya bertipe array
+
+### toArray Method di Collection
+
+|Method|Keterangan|
+|---|---|
+|`Object[] toArray()`|Mengubah collection menjadi array|
+|`T[] toArray(T[])`|Mengubah collection menjadi array T|
+
+Contoh:
+
+```java
+public class MyArray {
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(
+                List.of(1, 2, 3, 3, 4, 5, 67, 7, 7, 8, 7, 6, 5)
+        );
+        Object[] objects = list.toArray();
+        Integer[] integers = list.toArray(new Integer[]{});
+        System.out.println(Arrays.toString(objects)); // [1, 2, 3, 3, 4, 5, 67, 7, 7, 8, 7, 6, 5]
+        System.out.println(Arrays.toString(integers)); // [1, 2, 3, 3, 4, 5, 67, 7, 7, 8, 7, 6, 5]
     }
 }
 ```
